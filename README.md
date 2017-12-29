@@ -15,7 +15,7 @@ No os preocupeis, es mucho mas fácil de lo que parece.
 Directo de [la documentación de React](https://reactjs.org/docs/higher-order-components.html):
 > **A higher-order component is a function that takes a component and returns a new component.**
 ```javascript
-const MiComponente = unHighOrderComponent(UnComponent);
+const AltoComponente = unHighOrderComponent(UnComponenteMedioPelo);
 ```
 Si usas [Redux](https://redux.js.org/docs/introduction/), su high-order component más conocido es *connect*. O si usas [Mobx](https://github.com/mobxjs/mobx) su high-order component más conocido es *observable*.
 Si esto no te quedo claro, tranqui, esto recién empieza.
