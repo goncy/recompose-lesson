@@ -99,7 +99,7 @@ flipName(({name, flippedName}) => <div>Sabías que {name} al revés es {flippedN
 ```
 
 ### Componer varios high-order components
-#### [Código completo](./companion/src/components/Compose.js) - [Ejemplo editable](https://codesandbox.io/s/y03rz2q4wz)
+#### [Código completo](./companion/src/components/Compose.js) - [Ejemplo editable](https://codesandbox.io/s/vqz5q9zy60)
 A veces necesitamos wrappear nuestr componente con varios high-order components, por ejemplo, `connect` de redux junto con `withState`, escribirlo como `withState(..., connect(MiComponenteMedioPelo))` se vuelve ilegible, más si tenemos que seguir agregando otros como `gql` de Apollo o más, para esto tenemos [compose](https://github.com/acdlite/recompose/blob/master/docs/API.md#compose). Compose nos permite componer *duh*, varios high-order components, dejando nuestro codigo mas legible.
 > ![01](./assets/compose.gif)
 

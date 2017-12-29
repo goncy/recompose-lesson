@@ -7,7 +7,7 @@ import { withForm } from "./AddLogic"
 // Componemos varios high-order components
 const enhacer = compose(withForm, withState("pristine", "setPristine", true))
 
-const addState = enhacer((
+const composing = enhacer((
   // Recibimos todas las props juntas
   { pristine, setPristine, formData, setFormProp }
 ) => (
@@ -33,4 +33,4 @@ const addState = enhacer((
   </div>
 ))
 
-export default addState
+export default composing
