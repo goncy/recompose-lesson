@@ -7,25 +7,26 @@ Listo, fín del curso. Ahre ☺️ xdxd.
 
 Bueno, flogger out. Primero que nada, hola!
 Me llamo **Gonzalo Pozzo** y en el momento de escribir esto era Frontend Developer en [The Next Ad](https://www.thenextad.com/) (De no ser así, hola desde el pasado!).
-Hoy les vengo a hablar de una de las librerias que mas uso y mas me gusta, [Recompose](https://github.com/acdlite/recompose).
-Como vimos un poco mas arriba, recompose es una libreria de utilidades para componentes y **high-order components** de React.
+Hoy les vengo a hablar de una de las librerias que más uso y más me gusta, [Recompose](https://github.com/acdlite/recompose).
+Como vimos un poco más arriba, recompose es una libreria de utilidades para componentes y **high-order components** de React.
 
 ### 🙋‍♂️️ Ni idea que es un high-order component.
-No os preocupeis, es mucho mas fácil de lo que parece.
+No os preocupeis, es mucho más fácil de lo que parece.
 Directo de [la documentación de React](https://reactjs.org/docs/higher-order-components.html):
 > **A higher-order component is a function that takes a component and returns a new component.**
 ```javascript
 const AltoComponente = unHighOrderComponent(UnComponenteMedioPelo);
 ```
 Si usas [Redux](https://redux.js.org/docs/introduction/), su high-order component más conocido es *connect*. O si usas [Mobx](https://github.com/mobxjs/mobx) su high-order component más conocido es *observable*.
-Si esto no te quedo claro, tranqui, esto recién empieza.
+Si no te quedo claro, tranqui, esto recién empieza.
 
 ## Ejemplos
 Basta de chacharas y vamos a ver algunos ejemplos de cosas que podemos hacer:
 
 > Tip: [Acá](https://goncy.github.io/recompose-lesson) podes verlos a todos funcionando
 
-### Rendering condicional - [CODE](./companion/src/components/ConditionalRendering.js) - [PLAYGROUND](https://codesandbox.io/s/zn95pwkm4)
+### Rendering condicional
+#### [Código completo](./companion/src/components/ConditionalRendering.js) - [Ejemplo editable](https://codesandbox.io/s/zn95pwkm4)
 Renderizar o no un componente basado en una prop que le llega, aislar ese caso por ejemplo para login nos permitiria mostrar secciones solo para usuarios logeados sin repetir codigo, o mostrar un loader/spinner mientras una prop de loading este en true, ahi es donde `branch` de recompose entra en juego.
 > ![01](./assets/conditional-rendering.gif)
 
@@ -41,7 +42,8 @@ const justForLoggedUsers = branch(
 justForLoggedUsers(() => <div>Solo me ves si estas loggeado</div>)
 ```
 
-### Agregar lógica - [CODE](./companion/src/components/AddLogic.js) - [PLAYGROUND](https://codesandbox.io/s/zl2336ro3x)
+### Agregar lógica
+#### [Código completo](./companion/src/components/AddLogic.js) - [Ejemplo editable](https://codesandbox.io/s/zl2336ro3x)
 Muchas veces necesitamos agregar la misma lógica a varios de nuestros componentes, como por ejemplo, un state para guardar data de un formulario, con recompose y `withStateHandlers` podes crear tu propio high-order component y reutilizarlo en todos tus componentes
 > ![01](./assets/add-logic.gif)
 
