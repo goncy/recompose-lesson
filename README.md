@@ -25,6 +25,26 @@ Basta de chacharas y vamos a ver algunos ejemplos de cosas que podemos hacer:
 
 > Tip: [Acá](https://goncy.github.io/recompose-lesson) podes verlos a todos funcionando
 
+### Agregar estado
+#### [Código completo](./companion/src/components/AddState.js) - [Ejemplo editable](https://codesandbox.io/s/yp07yw1rmv)
+Cuantas veces pasó que tuvimos que agregar solo una propiedad al state de nuestro componente y tuvimos que hacerlo componente para eso? `withState` al rescate.
+> ![01](./assets/add-state.gif)
+
+```javascript
+const welcomeable = withState(
+  // El primer parametro va a ser el nombre que queremos darle a nuestro state
+  "welcomed",
+  // El segundo parametro va a ser el nombre que queremos darle a la función que va a setear nuestro state
+  "setWelcomed",
+  // El tercer parametro es el valor inicial de nuestro state
+  true
+)
+
+welcomeable(({welcomed}) => <div>{welcomed ? 'Welcome' : 'Fuck you'}</div>)
+```
+
+> TIP: Si te gusta el estilo reducer de Redux, podes usar [withReducer](https://github.com/acdlite/recompose/blob/master/docs/API.md#withreducer), si necesitas muchos estados podes simplemente nestear varios [withState](https://github.com/acdlite/recompose/blob/master/docs/API.md#withstate) o usar [withStateHandlers](https://github.com/acdlite/recompose/blob/master/docs/API.md#withstatehandlers)
+
 ### Rendering condicional
 #### [Código completo](./companion/src/components/ConditionalRendering.js) - [Ejemplo editable](https://codesandbox.io/s/zn95pwkm4)
 Renderizar o no un componente basado en una prop que le llega, aislar ese caso por ejemplo para login nos permitiria mostrar secciones solo para usuarios logeados sin repetir codigo, o mostrar un loader/spinner mientras una prop de loading este en true, ahi es donde `branch` de recompose entra en juego.
@@ -61,6 +81,39 @@ const withForm = withStateHandlers(
 
 withForm(({formData, setFormProp}) => <div>Esta es la info de mi formulario -> {JSON.stringify(formData)}</div>)
 ```
+
+### Agregando props a base de nuestras props
+#### [Código completo](./companion/src/components/AddProps.js) - [Ejemplo editable](https://codesandbox.io/s/y03rz2q4wz)
+Posiblemente el título no se entiendo, por estoy acá, para explicarlo peor todavía. Muchas veces necesitamos props nuevas basadas en nuestras props viejas, para eso tenemos [withProps](https://github.com/acdlite/recompose/blob/master/docs/API.md#withprops) y [mapProps](https://github.com/acdlite/recompose/blob/master/docs/API.md#mapprops), ambas funcionan igual, solo que `withProps` agrega las props a nuestras props existentes y `mapProps` reemplaza todas nuestras props.
+> ![01](./assets/add-props.gif)
+
+```javascript
+const flipName = withProps(({ name }) => ({
+  flippedName: name
+    .split("")
+    .reverse()
+    .join("")
+}))
+
+flipName(({name, flippedName}) => <div>Sabías que {name} al revés es {flippedName}?</div>)
+```
+
+### Componer varios high-order components
+#### [Código completo](./companion/src/components/Compose.js) - [Ejemplo editable](https://codesandbox.io/s/y03rz2q4wz)
+A veces necesitamos wrappear nuestr componente con varios high-order components, por ejemplo, `connect` de redux junto con `withState`, escribirlo como `withState(..., connect(MiComponenteMedioPelo))` se vuelve ilegible, más si tenemos que seguir agregando otros como `gql` de Apollo o más, para esto tenemos [compose](https://github.com/acdlite/recompose/blob/master/docs/API.md#compose). Compose nos permite componer *duh*, varios high-order components, dejando nuestro codigo mas legible.
+> ![01](./assets/compose.gif)
+
+```javascript
+// Componemos varios high-order components
+const enhacer = compose(
+  defaultProps({ name: "Gonzalo" }),
+  withState("pristine", "setPristine", true)
+)
+
+enhacer(({pristine, setPristine, name}) => <div>Tengo todas mis props!</div>)
+```
+
+> TIP: Hay un patrón que se suele usar en Recompose que es crear una const `enhacer` con todos nuestros high-order components wrappeados en un `compose` y luego al exportar el componente se hace `export default enhacer(Component)`, permitiendo exportar por cada lado el `enhacer`, el `Component` y por defecto el componente wrappeado.
 
 ## Docs
 * 📚 [Recompose API Docs](https://github.com/acdlite/recompose/blob/master/docs/API.md)

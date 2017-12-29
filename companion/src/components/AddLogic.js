@@ -1,7 +1,7 @@
 import React from "react"
 import { withStateHandlers } from "recompose"
 
-const withForm = withStateHandlers(
+export const withForm = withStateHandlers(
   // Armamos nuestro state inicial
   { formData: {} },
   {
@@ -12,7 +12,7 @@ const withForm = withStateHandlers(
   }
 )
 
-const addLogic = (
+const addLogic = withForm((
   // Al wrappear nuestro componente con withForm va a recibir 2 props nuevas, formData y setFormProp
   { formData, setFormProp }
 ) => (
@@ -43,7 +43,7 @@ const addLogic = (
       <div>{JSON.stringify(formData)}</div>
     </div>
   </div>
-)
+))
 
 // Exportamos nuestro componente wrappead con withForm
-export default withForm(addLogic)
+export default addLogic
