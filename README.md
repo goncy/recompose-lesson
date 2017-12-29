@@ -115,14 +115,14 @@ enhacer(({pristine, setPristine, name}) => <div>Tengo todas mis props!</div>)
 
 > TIP: Hay un patrón que se suele usar en Recompose que es crear una const `enhacer` con todos nuestros high-order components wrappeados en un `compose` y luego al exportar el componente se hace `export default enhacer(Component)`, permitiendo exportar por cada lado el `enhacer`, el `Component` y por defecto el componente wrappeado.
 
+## 😱 Fin?
+Bueno, hasta aquí llego mi amor, pero eso no significa que el tuyo también, la docu de recompose es muy larga y hay +40 helpers! 🤯, así que imaginate todo lo que se puede hacer, se creativo, innova, mete magia y sustancia y compartí lo que hagas. Cualquier duda preguntá y nunca, nunca dejes de aprender! (We re filosófico el Goncy)
+
 ## Docs
 * 📚 [Recompose API Docs](https://github.com/acdlite/recompose/blob/master/docs/API.md)
 * ✏️ [Recompose Base fiddle](https://jsfiddle.net/samsch/p3vsmrvo/24/)
 
-## Licencia
-📄 [Licencia MIT](https://github.com/ndelvalle/workshop-vuejs/blob/master/LICENSE)
-
 ---
-*Cualquier consulta, critica, PR o sugerencia es totalmente bienvenida.*
+*Si encontras un error, typo, cagada, moco o calificativo negativo, avisame o haceme un PR, gracias!*
 
-**✍️ with ❤️ by [@goncy](http://github.com/goncy)**
+**by [@goncy](http://github.com/goncy)**
