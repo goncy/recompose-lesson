@@ -8,12 +8,16 @@ const Placeholder = () => (
 
 // Creamos nuestro HOC
 const justForLoggedUsers = branch(
-  ({ logged }) => !logged, // El primer parametro es una function que recibe las props de nuestro componente y debe devolver true o false
-  renderComponent(Placeholder) // En caso de que devuelva true (el usuario no esta logeado) va a renderizar este componente, notese que esta wrapeado en la funcion renderComponent
-) // En caso de que de false va a renderizar nuestro componente original, como lo usamos mas abajo
+  // El primer parametro es una function que recibe las props de nuestro componente y debe devolver true o false
+  ({ logged }) => !logged,
+  // En caso de que devuelva true (el usuario no esta logeado) va a renderizar este componente, notese que esta wrapeado en la funcion renderComponent
+  renderComponent(Placeholder)
+  // En caso de que de false va a renderizar nuestro componente original, como lo usamos mas abajo
+)
 
 const UserForm = justForLoggedUsers((
-  { nombre, apellido } // Wrappeamos nuestro componente que queremos que solo vean los usuarios logeados con nuestro HOC
+  // Wrappeamos nuestro componente que queremos que solo vean los usuarios logeados con nuestro HOC
+  { nombre, apellido }
 ) => (
   <div>
     <div>Nombre: {nombre}</div>
@@ -22,7 +26,8 @@ const UserForm = justForLoggedUsers((
 ))
 
 const ConditionalRendering = (
-  { logged, setLogged } // Creamos un componente con 2 botones para probar nuestro componente original
+  // Creamos un componente con 2 botones para probar nuestro componente original
+  { logged, setLogged }
 ) => (
   <div
     style={{
@@ -48,4 +53,5 @@ const ConditionalRendering = (
   </div>
 )
 
-export default withState("logged", "setLogged", false)(ConditionalRendering) // Tip, withState es otro HOC que nos permite agregarle state a un componente funcional
+// Tip, withState es otro HOC que nos permite agregarle state a un componente funcional
+export default withState("logged", "setLogged", false)(ConditionalRendering)

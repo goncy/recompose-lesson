@@ -12,7 +12,8 @@ class App extends Component {
           <h1 className="App-title">Recompose lesson companion</h1>
         </header>
         <div className="App-intro">
-          <Example title="Conditional rendering" name="ConditionalRendering" />
+          <Example title="Rendering condicional" name="ConditionalRendering" />
+          <Example title="Agregar lógica" name="AddLogic" />
         </div>
       </div>
     )
