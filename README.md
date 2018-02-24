@@ -10,7 +10,7 @@ Me llamo **Gonzalo Pozzo** y en el momento de escribir esto era Frontend Develop
 Hoy les vengo a hablar de una de las librerias que más uso y más me gusta, [Recompose](https://github.com/acdlite/recompose).
 Como vimos un poco más arriba, recompose es una libreria de utilidades para componentes y **high-order components** de React.
 
-### 🙋‍♂️️ Ni idea que es un high-order component.
+### 🙋‍♂️️ Ni idea que es un high-order component
 No os preocupeis, es mucho más fácil de lo que parece.
 Directo de [la documentación de React](https://reactjs.org/docs/higher-order-components.html):
 > **A higher-order component is a function that takes a component and returns a new component.**
@@ -307,12 +307,15 @@ render(<App />, document.getElementById('root'));
 > TIP: Hay un patrón que se suele usar en Recompose que es crear una const `enhacer` con todos nuestros high-order components wrappeados en un `compose` y luego al exportar el componente se hace `export default enhacer(Component)`, permitiendo exportar por cada lado el `enhacer`, el `Component` y por defecto el componente wrappeado.
 
 ## 😱 Fin?
-Bueno, hasta aquí llego mi amor, pero eso no significa que el tuyo también, la docu de recompose es muy larga y hay +40 helpers! 🤯, así que imaginate todo lo que se puede hacer, se creativo, innova, mete magia y sustancia y compartí lo que hagas. Cualquier duda preguntá y nunca, nunca dejes de aprender! (We re filosófico el Goncy)
+Bueno, hasta aquí llego mi amor, pero eso no significa que el tuyo también, la docu de recompose es muy larga y hay +40 helpers! 🤯, así que imaginate todo lo que se puede hacer, se creativo, innova, mete magia, ritmo y sustancia y compartí lo que hagas. Cualquier duda preguntá y nunca, nunca dejes de aprender! (We re filosófico el Goncy)
 
 ## Docs
 * 📚 [Recompose API Docs](https://github.com/acdlite/recompose/blob/master/docs/API.md)
 * ✏️ [Recompose Base fiddle](https://jsfiddle.net/samsch/p3vsmrvo/24/)
 
+## 📚 Más lecciones
+* [Ramda](https://github.com/goncy/ramda-lesson)
+* [Cypress](https://github.com/goncy/cypress-lesson)
 ---
 *Si encontras un error, typo, cagada, moco o calificativo negativo, avisame o haceme un PR, gracias!*
 
